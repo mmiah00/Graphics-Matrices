@@ -36,10 +36,12 @@ def ident( matrix ):
 #multiply m1 by m2, modifying m2 to be the product
 #m1 * m2 -> m2
 def matrix_mult( m1, m2 ):
-
-
-
-
+    ans = new_matrix
+    for i in range (len(m1)):
+        sum = 0
+        for j in range (len (m2[i])):
+            sum += m1[i]
+    m2 = ans
 
 def new_matrix(rows = 4, cols = 4):
     m = []
