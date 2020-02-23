@@ -45,33 +45,6 @@ def matrix_mult( m1, m2 ):
             ans.append (sum)
         m2[x] = ans
 
-    # ans =[]
-    # for i in range (len (m1)):
-    #     r = []
-    #     for j in range (len (m2[0])):
-    #         col = return_col (m1, i)
-    #         row = return_row (m2,j)
-    #         sum = mult_row_col (col,row)
-    #         r.append (sum)
-    #     ans.append (r)
-    # m2 = ans
-
-
-def return_row (matrix, index):
-    return matrix[index]
-
-def return_col (matrix, index):
-    ans = []
-    for i in range (len (matrix)):
-        ans.append (matrix[i][index])
-    return ans
-
-def mult_row_col (col, row):
-    sum = 0
-    for i in range (len (col)):
-        sum += (col[i] * row[i])
-    return sum
-
 def new_matrix(rows = 4, cols = 4):
     m = []
     for c in range( cols ):
