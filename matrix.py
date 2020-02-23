@@ -53,36 +53,36 @@ def new_matrix(rows = 4, cols = 4):
             m[c].append( 0 )
     return m
 
-a = [[21,31,41,51],
-     [2,4,7,1],
-     [20, 10, 0, 2],
-     [1,1,1,1]]
-
-b = [[2,4,7,1],
-     [20, 10, 0, 2],
-     [21,31,41,51],
-     [1,1,1,1]]
-
-print ("Matrix A RN:\n")
-print_matrix (a)
-print ("\n")
-
-print ("Matrix B RN: \n")
-print_matrix (b)
-print ("\n")
-
-print ("Row 2 of A: ")
-print (return_row (a,2))
-print ("Col 1 of A: ")
-print (return_col (a,1))
-
-print ("\n")
-print ("Row 2 of B: ")
-print (return_row (b,2))
-print ("Col 2 of B: ")
-print (return_col (b,2))
-
-
-print ("multiplying A and B, B becomes the product\n")
-matrix_mult (a,b)
-print_matrix (b)
+# a = [[21,31,41,51],
+#      [2,4,7,1],
+#      [20, 10, 0, 2],
+#      [1,1,1,1]]
+#
+# b = [[2,4,7,1],
+#      [20, 10, 0, 2],
+#      [21,31,41,51],
+#      [1,1,1,1]]
+#
+# print ("Matrix A RN:\n")
+# print_matrix (a)
+# print ("\n")
+#
+# print ("Matrix B RN: \n")
+# print_matrix (b)
+# print ("\n")
+#
+# print ("Row 2 of A: ")
+# print (return_row (a,2))
+# print ("Col 1 of A: ")
+# print (return_col (a,1))
+#
+# print ("\n")
+# print ("Row 2 of B: ")
+# print (return_row (b,2))
+# print ("Col 2 of B: ")
+# print (return_col (b,2))
+#
+#
+# print ("multiplying A and B, B becomes the product\n")
+# matrix_mult (a,b)
+# print_matrix (b)
