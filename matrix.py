@@ -36,27 +36,26 @@ def ident( matrix ):
 #multiply m1 by m2, modifying m2 to be the product
 #m1 * m2 -> m2
 def matrix_mult( m1, m2 ):
-    ans =[]
-    for i in range (len (m1)):
-        r = []
-        for j in range (len (m2[0])):
-            col = return_col (m1, i)
-            row = return_row (m2,j)
-            sum = mult_row_col (col,row)
-            r.append (sum)
-        ans.append (r)
-    m2 = ans
-    return m2
+    for x in range (len (m2)): #columns in m2
+        ans = [] #sums per column
+        for y in range (len (m2[0])): #rows
+            sum = 0
+            for z in range (len (m1)):
+                sum += (m1[z][y] * m2[x][z])
+            ans.append (sum)
+        m2[x] = ans
 
+    # ans =[]
+    # for i in range (len (m1)):
+    #     r = []
+    #     for j in range (len (m2[0])):
+    #         col = return_col (m1, i)
+    #         row = return_row (m2,j)
+    #         sum = mult_row_col (col,row)
+    #         r.append (sum)
+    #     ans.append (r)
+    # m2 = ans
 
-    # ans_r, ans_c = 0,0
-    # for col in range (len(m1)):
-    #     sum = 0
-    #     for row in range (len (m1[col])):
-    #         sum += (m1[col][row]*m2[row][col])
-    #     ans[ans_r][ans_c] = sum
-    #     ans_r += 1
-    #     ans_c += 1
 
 def return_row (matrix, index):
     return matrix[index]
@@ -81,17 +80,15 @@ def new_matrix(rows = 4, cols = 4):
             m[c].append( 0 )
     return m
 
-a = new_matrix ()
-a[0] = [21,31,41,51]
-a[1] = [2,4,7,1]
-a[2] = [20, 10, 0, 2]
-a[3] = [1,1,1,1]
+a = [[21,31,41,51],
+     [2,4,7,1],
+     [20, 10, 0, 2],
+     [1,1,1,1]]
 
-b = new_matrix ()
-b[0] = [2,4,7,1]
-b[1] = [20, 10, 0, 2]
-b[2] = [21,31,41,51]
-b[3] = [1,1,1,1]
+b = [[2,4,7,1],
+     [20, 10, 0, 2],
+     [21,31,41,51],
+     [1,1,1,1]]
 
 print ("Matrix A RN:\n")
 print_matrix (a)
