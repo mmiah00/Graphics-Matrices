@@ -4,7 +4,7 @@ from matrix import *
 import random
 
 screen = new_screen()
-WHITE = [ 255, 255, 255 ]
+GREY = [ 169, 169, 169 ]
 matrix = new_matrix()
 
 # TESTING DRAWING A SQUARE
@@ -13,13 +13,8 @@ matrix = new_matrix()
 # add_edge (matrix, 150, 150, 0, 50, 150, 0)
 # add_edge (matrix, 50,50, 0, 50, 150, 0)
 
-# add_edge (matrix, 0, 350, 0, 0, 360, 0)
 def draw_road ():
     add_edge (matrix, 0, 250, 0, 500, 250, 0)
-    #add_edge (matrix, 0, 260, 0, 500, 260, 0)
-    # add_edge (matrix, 500, 300, 0, 500, 150, 0)
-    # add_edge (matrix, 500, 300, 0, 0, 360, 0)
-    # add_edge (matrix, 500, 150, 0, 0, 350, 0)
 
 draw_road ()
 
@@ -30,12 +25,6 @@ def draw_legs ():
         add_edge (matrix, x, 0, 0, x + 40, 0, 0)
         add_edge (matrix, x + 40, 0, 0, x + 40, 250, 0)
         x += 300
-        # y1 = int ((-2/5)*x + 350)
-        # add_edge (matrix, x, y1, 0, x, y1 - 75, 0)
-        # add_edge (matrix, x, y1 - 75, 0, x + 25, y1 - 75, 0)
-        # y2 = int ((-2/5)*(x + 25) + 350)
-        # add_edge (matrix, x + 25, y1 - 75, 0, x + 25, y2, 0)
-        # x += 75
 
 draw_legs ()
 
@@ -58,7 +47,5 @@ def draw_beams ():
 
 draw_beams ()
 
-
-
-draw_lines( matrix, screen, WHITE )
+draw_lines( matrix, screen, GREY )
 display(screen)
