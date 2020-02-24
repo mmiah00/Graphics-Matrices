@@ -4,7 +4,7 @@ from matrix import *
 import random
 
 screen = new_screen()
-GREEN = [ 20, 82,80 ]
+WHITE = [ 255, 255, 255 ]
 matrix = new_matrix()
 
 # TESTING DRAWING A SQUARE
@@ -13,23 +13,52 @@ matrix = new_matrix()
 # add_edge (matrix, 150, 150, 0, 50, 150, 0)
 # add_edge (matrix, 50,50, 0, 50, 150, 0)
 
-def leaf (radius, cx1, cy1, cx2, cy2):
-    for x in range (500):
-        for y in range (500):
-            if pow ((x - cx1),2) + pow ((y - cy1),2) < pow (radius, 2):
-                if pow ((x - cx2),2) + pow ((y - cx2),2) < pow (radius, 2):
-                    add_point (matrix, x, y)
+# add_edge (matrix, 0, 350, 0, 0, 360, 0)
+def draw_road ():
+    add_edge (matrix, 0, 250, 0, 500, 250, 0)
+    #add_edge (matrix, 0, 260, 0, 500, 260, 0)
+    # add_edge (matrix, 500, 300, 0, 500, 150, 0)
+    # add_edge (matrix, 500, 300, 0, 0, 360, 0)
+    # add_edge (matrix, 500, 150, 0, 0, 350, 0)
 
-leaf (100, 250 - 25, 250, 250 +50, 250)
-# DRAWING STAR
-# add_edge (matrix, 50, 100, 0, int((50+75)/2), 130,0)
-# add_edge (matrix, int((50+75)/2), 130,0, 75, 100, 0)
-# add_edge (matrix, 75, 100, 0, 75+32, 100, 0)
-# add_edge (matrix, 75+32, 100, 0, 75+15, 100-20,0)
-# add_edge (matrix, 50, 100, 0, 50-32, 100, 0)
-# add_edge (matrix, 50-32, 100, 0, 50-15, 100-20, 0)
-# add_edge (matrix, 75+15, 100-20,0, 75+32, 100-50, 0)
-# add_edge (matrix, 75+32, 100-50, 0, 75+15-20, 100-20-15,0)
+draw_road ()
 
-draw_lines( matrix, screen, GREEN )
+def draw_legs ():
+    x = 25
+    while (x < 500):
+        add_edge (matrix, x, 250, 0, x, 250 - 150, 0)
+        add_edge (matrix, x, 250 - 150, 0, x + 40, 250 - 150, 0)
+        add_edge (matrix, x + 40, 250 - 150, 0, x + 40, 250, 0)
+        x += 150
+        # y1 = int ((-2/5)*x + 350)
+        # add_edge (matrix, x, y1, 0, x, y1 - 75, 0)
+        # add_edge (matrix, x, y1 - 75, 0, x + 25, y1 - 75, 0)
+        # y2 = int ((-2/5)*(x + 25) + 350)
+        # add_edge (matrix, x + 25, y1 - 75, 0, x + 25, y2, 0)
+        # x += 75
+
+draw_legs ()
+
+def draw_cables (starting_x, ending_x):
+    y = 250 + 200 - 25
+    while (y > 250):
+        add_edge (matrix, starting_x, y, 0 , ending_x, 250, 0)
+        y -= 25
+
+def draw_beams ():
+    x = 35
+    draw_cables (x, x - 40)
+    while (x < 500):
+        add_edge (matrix, x, 250, 0, x, 250 + 200, 0)
+        add_edge (matrix, x, 250 + 200, 0, x + 20, 250 + 200, 0)
+        add_edge (matrix, x + 20, 250 + 200, 0, x + 20, 250, 0)
+        draw_cables (x + 20, x + 90)
+        draw_cables (x + 20 + 130, x + 90)
+        x += 150
+
+draw_beams ()
+
+
+
+draw_lines( matrix, screen, WHITE )
 display(screen)
