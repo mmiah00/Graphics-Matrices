@@ -24,12 +24,12 @@ def draw_road ():
 draw_road ()
 
 def draw_legs ():
-    x = 25
+    x = 75
     while (x < 500):
-        add_edge (matrix, x, 250, 0, x, 250 - 150, 0)
-        add_edge (matrix, x, 250 - 150, 0, x + 40, 250 - 150, 0)
-        add_edge (matrix, x + 40, 250 - 150, 0, x + 40, 250, 0)
-        x += 150
+        add_edge (matrix, x, 250, 0, x, 0, 0)
+        add_edge (matrix, x, 0, 0, x + 40, 0, 0)
+        add_edge (matrix, x + 40, 0, 0, x + 40, 250, 0)
+        x += 300
         # y1 = int ((-2/5)*x + 350)
         # add_edge (matrix, x, y1, 0, x, y1 - 75, 0)
         # add_edge (matrix, x, y1 - 75, 0, x + 25, y1 - 75, 0)
@@ -40,21 +40,21 @@ def draw_legs ():
 draw_legs ()
 
 def draw_cables (starting_x, ending_x):
-    y = 250 + 200 - 25
+    y = 250 + 175 - 25
     while (y > 250):
         add_edge (matrix, starting_x, y, 0 , ending_x, 250, 0)
-        y -= 25
+        y -= 20
 
 def draw_beams ():
-    x = 35
-    draw_cables (x, x - 40)
+    x = 85
+    draw_cables (x, x - 145)
     while (x < 500):
-        add_edge (matrix, x, 250, 0, x, 250 + 200, 0)
-        add_edge (matrix, x, 250 + 200, 0, x + 20, 250 + 200, 0)
-        add_edge (matrix, x + 20, 250 + 200, 0, x + 20, 250, 0)
-        draw_cables (x + 20, x + 90)
-        draw_cables (x + 20 + 130, x + 90)
-        x += 150
+        add_edge (matrix, x, 250, 0, x, 250 + 175, 0)
+        add_edge (matrix, x, 250 + 175, 0, x + 20, 250 + 175, 0)
+        add_edge (matrix, x + 20, 250 + 175, 0, x + 20, 250, 0)
+        draw_cables (x + 20, x + 160)
+        draw_cables (x + 300, x + 160)
+        x += 300
 
 draw_beams ()
 
